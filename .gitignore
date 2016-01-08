@@ -4,7 +4,4 @@ dist
 backup
 src
 .tmp
-package.json
-gulpfile.babel.js
-gulpfile.js
 .yo-rc.json
