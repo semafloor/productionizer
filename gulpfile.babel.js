@@ -121,6 +121,10 @@ gulp.task('replace', () => {
     .pipe(minifyHTML())
     .pipe(size({
       showFiles: true,
+      title: 'Replace: '
+    }))
+    .pipe(size({
+      showFiles: true,
       gzip: true,
       title: 'Replace: '
     }))

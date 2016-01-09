@@ -1,6 +1,6 @@
 {
-  "name": "semafloor-current-page",
-  "version": "0.3.0",
+  "name": "productionizer",
+  "version": "0.1.1",
   "description": "An element providing a starting point for your own reusable Polymer elements.",
   "main": "semafloor-current-page.js",
   "directories": {
@@ -38,5 +38,13 @@
     "lodash": "^3.10.1",
     "run-sequence": "^1.1.5"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "keywords": [
+    "productionizer",
+    "semafloor",
+    "es2015",
+    "node",
+    "polymer",
+    "web"
+  ]
 }
