@@ -239,45 +239,38 @@ gulp.task('build', () => {
 });
 
 // revert everything.
-// revert everything.
 gulp.task('copy-src', () => {
-  // check if required files exist.
-  fs.stat(`${SRC}/*.js`, (err, stats) => {
-    if (err) {
-      console.log('Error: No .js file exists!');
-      return;
-    }
-  });
-  fs.stat(`${SRC}/*.html`, (err, stats) => {
-    if (err) {
-      console.log('Error: No .html file exists!');
-      console.log('No .js and .html files. gulp copy-src stopped.');
-      return;
+  var _ext = ['js', 'html'];
+  var i = 0;
+
+  return gulp.src([
+   `${SRC}/*.js`,
+   `${SRC}/*.html`
+  ], (unknown, files) => {
+    if (_.isEmpty(files)) {
+      console.log(`No .${_ext[i]} files exist!`);
+      i++;
     }else {
-      // if required files exist, proceed.
       return gulp.src([
         `${SRC}/*.js`,
         `${SRC}/*.html`
       ])
-      .pipe(gulp.dest('./'))
+        .pipe(gulp.dest('./'))
     }
   });
 });
 gulp.task('revert', () => {
-  // check if required files exist.
-  fs.stat(`${SRC}/*.js`, (err, stats) => {
-    if (err) {
-      console.log('Error: No .js file exists!');
-      return;
-    }
-  });
-  fs.stat(`${SRC}/*.html`, (err, stats) => {
-    if (err) {
-      console.log('Error: No .html file exists!');
-      console.log('No .js and .html files. gulp revert stopped.');
-      return;
+  var _ext = ['js', 'html'];
+  var i = 0;
+
+  return gulp.src([
+   `${SRC}/*.js`,
+   `${SRC}/*.html`
+  ], (unknown, files) => {
+    if (_.isEmpty(files)) {
+      console.log(`Error: No .${_ext[i]} files exist!`);
+      i++;
     }else {
-      // if required files exist, proceed.
       sequence(
         'clean-main',
         'copy-src',
